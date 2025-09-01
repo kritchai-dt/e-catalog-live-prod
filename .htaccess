@@ -1,0 +1,7 @@
+# ใช้ index.php เป็นหน้าแรก
+DirectoryIndex index.php
+
+# ถ้าต้องการ force หยุด redirect อื่น ๆ ที่ยัง cached
+RewriteEngine On
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+pages/home\.php [NC]
+RewriteRule ^pages/home\.php$ / [R=301,L]

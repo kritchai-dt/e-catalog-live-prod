@@ -1,0 +1,201 @@
+<div class="hamburger-menu">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-3">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+          <span class="bg"></span>
+        </label>
+
+        <ul class="menu__box">
+          <li class="menu-main"><a href="../pages/home.php">E-Catalogue</a>
+            <ul class="sub-menu">
+                <li><a class="menu__item" href="../pages/ProductFactsheet.php">Product Sheet</a></li>   
+                <li><a class="menu__item" href="../pages/Brochure.php">Brochure</a></li>
+                <li><a class="menu__item" href="../pages/Service.php">Service</a></li>
+                <li><a class="menu__item" href="../pages/Video.php">Video</a></li>
+                <li><a class="menu__item" href="../pages/ProductContent.php">Content</a></li>              
+                <li><a class="menu__item" href="../pages/Document.php">Documents</a></li>              
+              </ul>
+            </li>
+            <li class="menu-main"><a href="../pages/BandStory.php">Brand Story</a></li>
+        </ul>
+
+
+      </div>
+      <div class="block-logo col-md-4 col-6">
+        <a href="../pages/home.php">
+          <img class="logo" src="../img/Coway-CI-blue.png">
+        </a>
+      </div>
+      <div id="div-search" class="col-md-4 text-center col-3">
+        
+
+        <div class="" style="margin-top: 20px; text-align: right;">
+          <a href="/pages/search.php">
+            <i class="fas fa-search"></i>
+          </a>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+  
+$(document).ready(function () {
+    if ($(window).width() < 600) {
+      $("#menu__toggle").change(function () {
+        if (this.checked) {
+          $(".bg").addClass("x-white");
+        } else {
+          $(".bg").removeClass("x-white");
+        }
+      });
+
+      $('.js-search_btn.ag-search_btn').click(function () {
+        $('#div-search').toggleClass("col-3");
+        $('#div-search').toggleClass("col-md-4"); 
+      
+      });
+
+
+
+    }
+  });
+
+
+</script>
+
+
+
+
+<style>
+  .fas.fa-search {
+    color: #16B2F5;
+    font-size: 20px;
+  }
+
+  .menu-main{
+    display: block;
+    padding: 5px 15px;
+    color: #FFFFFF;
+    font-size: 24px;
+    text-decoration: none;
+    transition-duration: .25s;
+  }
+  .menu-main a {
+    color: white;
+  }
+  .menu-main a:hover {
+    text-decoration: none;
+  }
+  .sub-menu{
+    padding: 0;
+    list-style: none;
+    transition-duration: .25s;
+  }
+
+  span.bg.x-white,
+  span.bg.x-white::after,
+  span.bg.x-white::before {
+    background-color: white;
+  }
+
+  #menu__toggle {
+    opacity: 0;
+  }
+
+  #menu__toggle:checked+.menu__btn>span {
+    transform: rotate(45deg);
+  }
+
+  #menu__toggle:checked+.menu__btn>span::before {
+    top: 0;
+    transform: rotate(0deg);
+  }
+
+  #menu__toggle:checked+.menu__btn>span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  #menu__toggle:checked~.menu__box {
+    left: 0 !important;
+  }
+
+  .menu__btn {
+    position: inherit;
+    top: 28px;
+    left: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .menu__btn>span,
+  .menu__btn>span::before,
+  .menu__btn>span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #16B2F5;
+    transition-duration: .25s;
+  }
+
+  .menu__btn>span::before {
+    content: '';
+    top: -8px;
+  }
+
+  .menu__btn>span::after {
+    content: '';
+    top: 8px;
+  }
+
+  .menu__box {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    background-color: #16B2F5;
+    box-shadow: 3px 4px 8px 0px rgb(37 37 37 / 40%);
+    transition-duration: .25s;
+  }
+
+  .menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #FFFFFF;
+    font-size: 24px;
+    text-decoration: none;
+    transition-duration: .25s;
+  }
+
+  .menu__item:hover {
+    background-color: #FFFFFF;
+    color: #16B2F5;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    .menu__btn {
+      left: 0;
+    }
+  }
+
+
+</style> 
